@@ -73,10 +73,10 @@ class ProductManager {
       ...updatedFields,
       id: product.id,
     };
-    const productId = this.products[productIndex].id;
+  
     this.products.splice(productIndex, 1, updatedProduct);
     this.saveProducts();
-    io.emit('deleteProduct', productId); // Emitir evento 'deleteProduct' al eliminar un producto
+  
   }
 
   deleteProduct(id) {
