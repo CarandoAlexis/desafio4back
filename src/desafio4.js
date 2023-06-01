@@ -39,6 +39,7 @@ class ProductManager {
     this.products.push(product);
     this.saveProducts();
     
+    
   }
 
   getProducts() {
