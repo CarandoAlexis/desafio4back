@@ -1,3 +1,4 @@
+/*
 import { Router } from "express";
 import path from 'path';
 import ProductManager from "../desafio4.js";
@@ -42,5 +43,27 @@ io.on('connection', socket => {
       }
     });
   });
+
+export default router;
+*/
+import { Router } from "express";
+import ProductManager from "../desafio4.js";
+
+
+const router = Router();
+const productManager = new ProductManager('products.json');
+
+
+router.get('/', (req, res) => {
+  const products = productManager.getProducts();
+  res.render('index', { products });
+});
+
+router.get('/realtimeproducts', (req, res) => {
+  const products = productManager.getProducts();
+  res.render('realTimeProducts', { products });
+});
+
+
 
 export default router;
